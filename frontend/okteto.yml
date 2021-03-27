@@ -1,0 +1,8 @@
+name: filemanager
+image:
+  name: okteto.dev/filemanager
+  context: .
+  dockerfile: Dockerfile
+sync:
+  - .:/src
+command: ["bash"]
