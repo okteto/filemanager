@@ -4,7 +4,6 @@ const mongo = require("mongodb").MongoClient;
 const app = express();
 
 const url = `mongodb://${process.env.MONGODB_USERNAME}:${encodeURIComponent(process.env.MONGODB_PASSWORD)}@${process.env.MONGODB_HOST}:27017/${process.env.MONGODB_DATABASE}`;
-
 function startWithRetry() {
   mongo.connect(url, {
     useUnifiedTopology: true,

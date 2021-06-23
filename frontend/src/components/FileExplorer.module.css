@@ -1,12 +1,43 @@
 .FileExplorer {
   --filexplorer-bgcolor: #2f2f2f;
-
+  display: flex;
+  flex-direction: column;
   background-color: var(--filexplorer-bgcolor);
+  padding: 18px 0;
 }
 
 .FileExplorerEmpty {
-  padding: 18px;
   text-align: center;
 }
 
-.FileExplorerItem {}
+.FileExplorerItem {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 18px;
+}
+
+.Active { 
+  background-color: #1C1C1C;
+}
+
+.FileExplorerItem:hover {
+  background-color: #3F3F3F;
+  cursor: pointer;
+}
+.FileItem {
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+  font-family: sans-serif;
+  padding-left: calc(var(--itemDepth, 0)*10px);
+}
+.FileItem svg {
+  font-size: 18px;
+  margin-right: 4px;
+}
+
+.Children {
+  padding-left: 8px;
+
+}
