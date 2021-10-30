@@ -7,7 +7,6 @@ function FileContent({ file = null }) {
   return (
     <div className={styles.FileContent}>
       <pre>
-        <h1>Holi</h1>
         {file?.content && atob(file.content)}
       </pre>
     </div>
