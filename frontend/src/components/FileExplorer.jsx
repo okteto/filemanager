@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from "react-redux";
 import PropTypes from 'prop-types';
+
+import { getFiles } from "../../utils/api/files";
 
 import FileIcon from '../assets/images/file.svg';
 import FolderIcon from '../assets/images/folder.svg';
 
 import styles from "./FileExplorer.module.css";
 
-function FileExplorer({ files = [] }) {
+function FileExplorer({ files = [], onClick }) {
   return (
     <div className={styles.FileExplorer}>
       {files.length === 0 &&
@@ -15,7 +18,7 @@ function FileExplorer({ files = [] }) {
         </div>
       }
       {files.map(file => (
-        <div className={styles.FileExplorerItem} key={file.id}>
+        <button onClick={() => onClick(file)} className={styles.FileExplorerItem} key={file.id}>
           {file.kind === 'folder' &&
             <FolderIcon className={styles.FileExplorerIcon} />
           }
@@ -26,7 +29,7 @@ function FileExplorer({ files = [] }) {
           <div className={styles.FileExplorerSize}>
             {file.size}
           </div>
-        </div>
+        </button>
       ))}
     </div>
   );
