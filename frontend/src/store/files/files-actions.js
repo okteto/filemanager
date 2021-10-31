@@ -6,8 +6,8 @@ export const receiveFiles = files => {
   };
 };
 
-export const refreshFiles = () => {
+export const refreshFiles = (files) => {
   return async dispatch => {
-    dispatch(receiveFiles([]));
+    dispatch(receiveFiles(files));
   };
 };
