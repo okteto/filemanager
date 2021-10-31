@@ -7,5 +7,6 @@ Para ello tenemos la documentación en [drive](https://docs.google.com/document/
 Tenemos que realizar los siguientes pasos:
 
 [x] Conectarnos a Okteto
-[ ] Realizar una llamada API a los ficheros (para más info ver "conexion-api.md")
+[x] Realizar una llamada API a los ficheros (para más info ver "conexion-api.md")
+[ ] Crear reducer para que ambos componentes tengan acceso a los archivos y a su estado
 [ ] Ver los archivos en nuestra App
