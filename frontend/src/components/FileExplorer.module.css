@@ -1,12 +1,47 @@
-.FileExplorer {
-  --filexplorer-bgcolor: #2f2f2f;
+@import "./colors.css";
 
+.FileExplorer {
   background-color: var(--filexplorer-bgcolor);
+  padding: 18px 0;
 }
 
 .FileExplorerEmpty {
-  padding: 18px;
+  padding: 18px 0;
   text-align: center;
 }
 
-.FileExplorerItem {}
+.FileExplorerItem {
+  border: none;
+  color: var(--general-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 8px 18px;
+  width: 100%;
+  transition: background-color 0.2s linear;
+}
+
+.FileExplorerItem:not(.FileExplorerItemSelected) {
+  background-color: transparent;
+}
+
+.FileExplorerItem:hover {
+  background-color: var(--filexplorer-hover);
+}
+
+.FileExplorerItemSelected {
+  background-color: var(--filexplorer-selected);
+}
+
+.FileExplorerName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.FileExplorerSize {
+  font-size: 12px;
+}
