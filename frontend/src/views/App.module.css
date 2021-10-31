@@ -1,14 +1,27 @@
 .App {
   --app-background-color: #1c1c1c;
   --app-horizontal-margin: 65px;
-  --app-normal-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --app-normal-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   background: var(--app-background-color);
   color: #ffffff;
   font-family: var(--app-normal-font);
-  display: grid;
-  flex: 1 auto;
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: 1fr;
+
   height: 100%;
+}
+
+@media (min-width: 769px) {
+  .App {
+    display: grid;
+    flex: 1 auto;
+    grid-template-columns: 0.3fr 0.7fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
