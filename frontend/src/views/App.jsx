@@ -8,22 +8,42 @@ import { refreshFiles } from '../store/files/files-actions';
 import { selectFile } from '../store/filemanager/filemanager-actions';
 
 import styles from "./App.module.css";
+import { getFiles } from '../../utils/api/files';
 
 const POLL_INTERVAL = 5000;
 
 function App() {
   const dispatch = useDispatch();
+  const [files, setFiles] = useState([])
+
+  useEffect(() => {
+    const loadFiles = async () => {
+      try {
+        const getData = await getFiles();
+        const files = getData.data
+        setFiles(files)
+      } catch (error) {
+        console.error(error);
+      }
+      
+    };
+    loadFiles()
+  }, []);
 
   useInterval(() => {
-    dispatch(refreshFiles());
+    dispatch(refreshFiles(files));
   }, POLL_INTERVAL, true);
+
+  const handleClick = (file) => {
+    dispatch(selectFile(file));
+  }
 
   const { list } = useSelector(store => store.files);
   const { selectedFile } = useSelector(store => store.filemanager);
 
   return (
     <div className={styles.App}>
-      <FileExplorer files={list} />
+      <FileExplorer onClick={handleClick} files={list} />
       <FileContent file={selectedFile} />
     </div>
   );
