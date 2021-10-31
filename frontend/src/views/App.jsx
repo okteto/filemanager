@@ -34,7 +34,7 @@ function App() {
     dispatch(refreshFiles(files));
   }, POLL_INTERVAL, true);
 
-  const handleClick = (file) => {
+  const getSelectedFile = (file) => {
     dispatch(selectFile(file));
   }
 
@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <FileExplorer onClick={handleClick} files={list} />
+      <FileExplorer onClick={getSelectedFile} files={list} />
       <FileContent file={selectedFile} />
     </div>
   );
