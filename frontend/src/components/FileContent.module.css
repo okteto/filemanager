@@ -1,2 +1,8 @@
+@import "./colors.css";
 .FileContent {
+  background-color: var(--filecontent-bgcolor);
+  color: var(--general-text);
+  font-family: monospace;
+  font-size: 16px;
+  padding: 24px;
 }
