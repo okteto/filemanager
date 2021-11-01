@@ -4,6 +4,23 @@
   background-color: var(--filexplorer-bgcolor);
   padding: 18px 0;
 }
+.FileExplorer ul > li > .FileExplorerItem {
+  padding-left: 18px;
+  padding-right: 18px;
+  width: 100%;
+}
+
+.FileExplorer ul > li > ul > li > .FileExplorerItem {
+  padding-left: calc(18px + 8px);
+}
+
+.FileExplorer ul > li > ul > li > ul > li > .FileExplorerItem {
+  padding-left: calc(18px + 8px + 8px);
+}
+
+.FileExplorer ul > li > ul > li > ul > li > ul > li > .FileExplorerItem {
+  padding-left: calc(18px + 8px + 8px + 8px);
+}
 
 .FileExplorerEmpty {
   padding: 18px 0;
@@ -13,14 +30,16 @@
 .FileExplorerItem {
   border: none;
   color: var(--general-text);
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: sans-serif;
   font-size: 16px;
-  padding: 8px 18px;
-  width: 100%;
+  padding: 8px 0;
+}
+
+button.FileExplorerItem {
+  cursor: pointer;
   transition: background-color 0.2s linear;
 }
 
@@ -28,7 +47,7 @@
   background-color: transparent;
 }
 
-.FileExplorerItem:hover {
+button.FileExplorerItem:hover {
   background-color: var(--filexplorer-hover);
 }
 
