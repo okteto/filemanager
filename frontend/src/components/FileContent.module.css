@@ -4,12 +4,22 @@
   color: var(--general-text);
   font-family: monospace;
   font-size: 16px;
+  overflow-x: scroll;
   padding: 24px;
+  width: auto;
+}
+.FileContent pre {
+  display: block;
+  max-width: 100%;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
 }
 
 @media (max-width: 768px) {
   .FileContent {
     height: 100%;
-    overflow-x: scroll;
   }
 }
