@@ -9,6 +9,7 @@ import { selectFile } from '../store/filemanager/filemanager-actions';
 
 import styles from "./App.module.css";
 import { getFiles } from '../../utils/api/files';
+import formatFiles from '../helpers/formatFiles';
 
 const POLL_INTERVAL = 5000;
 
@@ -34,10 +35,11 @@ function App() {
     dispatch(refreshFiles(files));
   }, POLL_INTERVAL, true);
 
+ 
   const getSelectedFile = (file) => {
     dispatch(selectFile(file));
   }
-
+ 
   const { list } = useSelector(store => store.files);
   const { selectedFile } = useSelector(store => store.filemanager);
 
