@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import formatFiles from '../helpers/formatFiles';
+import { useSelector } from 'react-redux';
 
 import FileIcon from '../assets/images/file.svg';
 import FolderIcon from '../assets/images/folder.svg';
 
 import styles from "./FileExplorer.module.css";
-import { useSelector } from 'react-redux';
+
 
 function FileExplorer({ files = [], onClick }) {
-  const formattedFiles = formatFiles(files)
   return (
     <div className={styles.FileExplorer}>
       {files.length === 0 &&
@@ -18,9 +17,9 @@ function FileExplorer({ files = [], onClick }) {
           The root folder is empty.
         </div>
       }
-      {formattedFiles && 
+      {files.length > 0 && 
         <ul>
-          {formattedFiles.map(file => {
+          {files.map(file => {
             return( <li key={file.id}><FolderOrArchiver onClick={onClick} file={file} /></li>)
           })}
         </ul>
